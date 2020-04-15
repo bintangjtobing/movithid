@@ -13,7 +13,7 @@ var INSPIRO = {},
   "use strict"
   // Predefined Global Variables
   var $window = $(window),
-    $theme_color = "#2250fc",
+    $theme_color = "#d22d2d",
     //Main
     $body = $("body"),
     $bodyInner = $(".body-inner"),
@@ -757,8 +757,8 @@ var INSPIRO = {},
           if (!$.isNumeric(elem.options.autoPlay) && elem.options.autoPlay != false) {
             elem.options.autoPlay = Number(7000);
           }
-          
-          if (INSPIRO.core.rtlStatus() == true) { 
+
+          if (INSPIRO.core.rtlStatus() == true) {
             elem.options.resize = true;
 
           }
@@ -1202,7 +1202,7 @@ var INSPIRO = {},
             elemWidth = elem.outerWidth();
 
           /* if(elemVisible !== "all") {
-            
+
           }else {
             if ($body.hasClass("b--desktop")) {
 
@@ -1250,18 +1250,18 @@ var INSPIRO = {},
       var $pDropdown = $(".p-dropdown");
       if ($pDropdown.length > 0) {
         $pDropdown.each(function () {
-          var elem = $(this); 
-     
+          var elem = $(this);
+
           elem.find('> a').on("click", function () {
           elem.toggleClass("dropdown-active");
           return false;
         });
-     
- 
+
+
           if ($window.width() / 2 > elem.offset().left) {
             elem.addClass("p-dropdown-invert");
-          }          
-        });       
+          }
+        });
       }
 
     },
@@ -1836,7 +1836,7 @@ var INSPIRO = {},
 
         var isotopeRTL;
 
-        if (INSPIRO.core.rtlStatus() == true) { 
+        if (INSPIRO.core.rtlStatus() == true) {
           isotopeRTL = false;
         } else {
           isotopeRTL = true;

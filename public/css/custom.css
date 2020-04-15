@@ -1,8 +1,27 @@
-/* 
+body {
+    background-color: #181818;
+}
 
-1. Add your custom Css styles below
-2. Place the this code in your template: 
+.section-dark {
+    background-color: #181818 !important;
+}
 
- <link href="css/custom.css" rel="stylesheet">
+.section-dark h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lato', sans-serif !important;
+    color: #fff !important;
+}
 
-*/
+.section-dark h1 {
+    font-weight: 900 !important;
+    margin-bottom: 0;
+}
+
+.section-dark img {
+    width: 500px !important;
+    height: auto;
+}

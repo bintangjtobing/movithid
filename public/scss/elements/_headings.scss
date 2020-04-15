@@ -70,7 +70,7 @@
             >* {
                 -webkit-text-fill-color: transparent !important;
                 -webkit-background-clip: text !important;
-                background: radial-gradient(circle at left top, #4b72ff 9%, #2250fc 48%, #6442ff 91%);
+                background: radial-gradient(circle at left top, #4b72ff 9%, #d22d2d 48%, #6442ff 91%);
             }
         }
     }
@@ -254,7 +254,7 @@
 @include breakpoint-lg(max) {
     .heading-text {
         margin-bottom: 16px;
-    
+
         h1,
         h2,
         h3,
@@ -263,28 +263,28 @@
         h6 {
             margin-bottom: 16px;
         }
-    
+
         h1 {
             font-size: 50px;
         }
-    
+
         h2 {
             font-size: 40px;
             line-height: 44px;
         }
-    
+
         h3 {
             font-size: 30px;
             margin-bottom: 10px;
             line-height: 36px;
         }
-    
+
         h4 {
             font-size: 24px;
             margin-bottom: 10px;
             line-height: 26px;
         }
-    
+
         p {
             font-size: 16px;
             margin-bottom: 16px;
@@ -292,7 +292,7 @@
         &.heading-plain,
         &.heading-light,
         &.heading-section {
-            h2 {  
+            h2 {
                 font-size: 40px;
                 line-height: 44px;
                 margin-bottom: 16px;

@@ -4,7 +4,7 @@
     a>span.logo-dark::after {
         position: absolute;
         content: "";
-        background: #2250fc;
+        background: #d22d2d;
         width: 13px;
         height: 13px;
         border-radius: 50%;

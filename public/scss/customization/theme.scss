@@ -2,7 +2,7 @@
 @import "../mixins";
 
 
-//Default #2250fc
+//Default #d22d2d
 $color-theme: #7341B4;
 
 /* ----------------------------------------------------------------
@@ -14,7 +14,7 @@ a:not(.btn):not(.badge):hover, a:not(.btn):not(.badge):focus, a:not(.btn):not(.b
 /* ----------------------------------------------------------------
 	Accordion
 -----------------------------------------------------------------*/
-.accordion { 
+.accordion {
     &.accordion-theme {
         .ac-item {
             background-color: $color-theme;
@@ -36,7 +36,7 @@ a:not(.btn):not(.badge):hover, a:not(.btn):not(.badge):focus, a:not(.btn):not(.b
 /* ----------------------------------------------------------------------
 	Buttons
 -------------------------------------------------------------------------*/
-button.btn, 
+button.btn,
 .btn:not(.close):not(.mfp-close), a.btn:not([href]):not([tabindex]) {
     background-color: $color-theme;
     border-color: $color-theme;
@@ -1008,7 +1008,7 @@ Dots Menu
         &.menu-lines,
         &.menu-solid,
         &.menu-light,
-        &.menu-creative, 
+        &.menu-creative,
         &.inverted {
             nav {
                 >ul {
