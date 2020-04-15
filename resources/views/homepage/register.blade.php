@@ -1,8 +1,9 @@
 @extends('welcome')
 @section('content')
-<section class="fullscreen"
-    style="background-image:
-    url(https://res.cloudinary.com/sarjanamalam/image/upload/v1586943903/movith/example/background-login-register_lfydul.jpg)">
+<section class="fullscreen" style="background-image:
+    url(https://res.cloudinary.com/sarjanamalam/image/upload/v1586943903/movith/example/background-login-register_lfydul.jpg);
+    padding-top:
+    20px; ">
     <div class="container container-fullscreen">
         <div class="text-middle">
             <div class="row">
@@ -45,11 +46,6 @@
                             <div class="col-lg-6 form-group">
                                 <label class="sr-only">Postcode / Zip</label>
                                 <input type="text" value="" placeholder="Postcode / Zip" class="form-control">
-                            </div>
-
-                            <div class="col-lg-6 form-group">
-                                <label class="sr-only">Phone</label>
-                                <input type="text" value="" placeholder="Phone" class="form-control">
                             </div>
                             <div class="col-lg-12 form-group">
                                 <button class="btn" type="button">Register New Account </button>

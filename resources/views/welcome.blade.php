@@ -45,7 +45,7 @@
                     <div class="header-extras">
                         <ul>
                             <li>
-                                <a class="btn btn-danger" href="login"><i class="icon-user"></i> SIGN IN</a>
+                                <a class="btn btn-danger" href="sign-in"><i class="icon-user"></i> SIGN IN</a>
                             </li>
                             {{-- <li>
                                 <div class="p-dropdown">

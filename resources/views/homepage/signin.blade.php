@@ -1,7 +1,8 @@
 @extends('welcome')
 @section('content')
 <section class="fullscreen"
-    data-bg-parallax="https://res.cloudinary.com/sarjanamalam/image/upload/v1586943903/movith/example/background-login-register_lfydul.jpg">
+    data-bg-parallax="https://res.cloudinary.com/sarjanamalam/image/upload/v1586943903/movith/example/background-login-register_lfydul.jpg"
+    style="padding-top:20px;">
     <div class="container">
         <div>
             <div class="row">

@@ -14,8 +14,8 @@
 Route::get('/', function () {
     return view('homepage.index');
 });
-Route::get('login', function () {
-    return view('homepage.login');
+Route::get('sign-in', function () {
+    return view('homepage.signin');
 });
 Route::get('sign-up', function () {
     return view('homepage.register');
