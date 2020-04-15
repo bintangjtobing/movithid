@@ -13,7 +13,17 @@ h4,
 h5,
 h6 {
     font-family: 'Lato', sans-serif !important;
-    color: #fff !important;
+    color: #fff;
+}
+
+.dark #footer .widget .widget-title,
+.dark #footer .widget h4,
+#footer.inverted .widget .widget-title,
+#footer.inverted .widget h4,
+#footer.dark .widget .widget-title,
+#footer.dark .widget h4 {
+    color: #a4a4a6 !important;
+    font-weight: 900 !important;
 }
 
 .section-dark h1 {
@@ -22,6 +32,31 @@ h6 {
 }
 
 .section-dark img {
-    width: 500px !important;
+    width: 500px;
     height: auto;
+}
+
+.input-group .advertisefc {
+    height: 30px !important;
+}
+
+.footer-content img {
+    width: 200px !important;
+}
+
+.iphone-sec2 {
+    width: 550px !important;
+}
+
+.section-dark .ac-item {
+    background-color: #2e2e2e !important;
+}
+
+.section-dark .ac-title {
+    font-size: 2rem !important;
+}
+
+.background-white h3 {
+    color: #121212;
+    font-weight: 900;
 }
