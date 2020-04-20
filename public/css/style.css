@@ -5279,6 +5279,7 @@ Portfolio
     opacity: 0;
     content: ' ';
     z-index: 2;
+    border-radius: 10px;
 }
 
 .portfolio-item .portfolio-image img,

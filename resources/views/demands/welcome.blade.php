@@ -73,7 +73,7 @@
                                     </ul>
 
                                     <ul>
-                                        <li class="dropdown"> <a href="#">Bintang Jeremia Tobing<span
+                                        <li class="dropdown"> <a href="#">Cafe Bintang Tobing<span
                                                     class="menu-sub-title">Usernames</span></a>
                                             <ul class="dropdown-menu">
                                                 <li><a href="#"><i class="icon-settings"></i> User Settings</a>
@@ -86,32 +86,10 @@
                     </div>
                 </div>
             </header>
-            <section class="apps">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="col-part">
-                                <i class="icon-cloud"></i> Rainy 18C
-                            </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="col-part">
-                                <i class="icon-cloud"></i> Rainy 18C
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12 m-t-30">
-                            <div class="col-part boxoffice">
-                                <h3>Video</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            @yield('content')
         </div>
 
-        <script src="js/jquery.js"></script>
+        <script src=" js/jquery.js"> </script>
         <script src="js/plugins.js"></script>
 
         <script src="js/functions.js"></script>

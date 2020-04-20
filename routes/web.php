@@ -51,6 +51,4 @@ Route::get('sign-up', function () {
 });
 
 // On Demands
-Route::get('demands', function () {
-    return view('demands.welcome');
-});
+Route::get('demands', 'DemandsController@index');
