@@ -4,14 +4,14 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="author" content="INSPIRO" />
-    <meta name="description" content="1st Advertise Indoor TV">
+    <meta name="author" content="©Bintang Tobing" />
+    <meta name="description" content="@yield('description')">
     <link rel="shortcut icon"
         href="https://res.cloudinary.com/sarjanamalam/image/upload/v1586767431/movith/based/icon_stawjx.png"
         alt="icon movith">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Movith - 1st Advertise Indoor TV</title>
+    <title>Movith - @yield('title')</title>
     <link href="css/plugins.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
@@ -72,8 +72,8 @@
                             <nav>
                                 <ul>
                                     <li><a href="/">Home</a></li>
-                                    <li><a href="#">Ads</a></li>
-                                    <li><a href="#">Box Office</a></li>
+                                    <li><a href="ads">Ads</a></li>
+                                    <li><a href="box-office">Box Office</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -101,10 +101,10 @@
                         <div class="widget text-left">
                             <h4>MORE FROM MOVITH</h4>
                             <ul class="list">
-                                <li><a href="#">Advertise here</a></li>
-                                <li><a href="#">Box Office</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Career</a></li>
+                                <li><a href="ads">Advertise here</a></li>
+                                <li><a href="box-office">Box Office</a></li>
+                                <li><a href="about-us">About Us</a></li>
+                                <li><a href="career">Career</a></li>
                             </ul>
                         </div>
                     </div>
@@ -112,10 +112,10 @@
                         <div class="widget text-left">
                             <h4>SUPPORT</h4>
                             <ul class="list">
-                                <li><a href="#">Privacy Policy</a></li>
-                                <li><a href="#">Terms of Use</a></li>
-                                <li><a href="#">Get Help</a></li>
-                                <li><a href="#">FAQ</a></li>
+                                <li><a href="privacy">Privacy Policy</a></li>
+                                <li><a href="terms">Terms of Use</a></li>
+                                <li><a href="help">Get Help</a></li>
+                                <li><a href="#faq">FAQ</a></li>
                             </ul>
                         </div>
                     </div>
@@ -123,9 +123,9 @@
                         <div class="widget text-left">
                             <h4>COMPANY</h4>
                             <ul class="list">
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Partners</a></li>
-                                <li><a href="#">Investor Relations</a></li>
+                                <li><a href="about-us">About Us</a></li>
+                                <li><a href="partners">Partners</a></li>
+                                <li><a href="investor-relations">Investor Relations</a></li>
                             </ul>
                         </div>
 
@@ -150,9 +150,13 @@
 
                         <div class="social-icons social-icons">
                             <ul>
-                                <li class="instagram"><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                <li class="social-facebook"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li class="social-twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="instagram"><a href="https://instagram.com/movithid" target="_blank"><i
+                                            class="fab fa-instagram"></i></a></li>
+                                <li class="social-facebook"><a href="https://www.facebook.com/movithid"
+                                        target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="social-youtube"><a
+                                        href="https://www.youtube.com/channel/UCk7rzrEqcmdd4qcGd5ynirg"
+                                        target="_blank"><i class="fab fa-youtube"></i></a></li>
                             </ul>
                         </div>
 

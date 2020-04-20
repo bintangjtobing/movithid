@@ -1,4 +1,7 @@
 @extends('welcome')
+@section('title','1st Advertise Indoor TV')
+@section('description','Hi Movith-er! Enjoy your movies on our platform. We are the 1st advertise indoor tv in
+Indonesia')
 @section('content')
 <div id="slider" class="inspiro-slider slider-halfscreen dots-creative" data-height-xs="360" data-autoplay="2600"
     data-animate-in="fadeIn" data-animate-out="fadeOut" data-items="1" data-loop="true" data-autoplay="true">
@@ -61,7 +64,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="offset-2 col-lg-8">
+            <div class="col-lg-12">
                 <div class="accordion dark">
                     <div class="ac-item">
                         <h5 class="ac-title">What is Movith</h5>

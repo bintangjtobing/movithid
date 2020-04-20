@@ -1,4 +1,6 @@
 @extends('welcome')
+@section('title','Sign in to your account')
+@section('description','Sign in to enjoy your movies.')
 @section('content')
 <section class="fullscreen"
     data-bg-parallax="https://res.cloudinary.com/sarjanamalam/image/upload/v1586943903/movith/example/background-login-register_lfydul.jpg"

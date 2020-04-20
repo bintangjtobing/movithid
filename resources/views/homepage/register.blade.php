@@ -1,4 +1,7 @@
 @extends('welcome')
+@section('title','Sign up your account')
+@section('description','Be a member and enjoy your high quality movies also premium ads that have been contracted with
+us.')
 @section('content')
 <section class="fullscreen" style="background-image:
     url(https://res.cloudinary.com/sarjanamalam/image/upload/v1586943903/movith/example/background-login-register_lfydul.jpg);
