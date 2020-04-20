@@ -2,6 +2,20 @@ body {
     background-color: #181818;
 }
 
+.ondemand {
+    background-color: #d22d2d !important;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8e1313, #d22d2d) !important;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8e1313, #d22d2d) !important;
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.ondemand #time {
+    font-size: 1.9rem !important;
+}
+
 .section-dark {
     background-color: #181818 !important;
 }
@@ -59,4 +73,15 @@ h6 {
 .background-white h3 {
     color: #121212;
     font-weight: 900;
+}
+
+.ondemand section {
+    background-color: transparent !important;
+    padding-top: 40px !important;
+}
+
+.apps .col-part {
+    
+    padding: 40px;
+    background-color: #a4a4a6;
 }
