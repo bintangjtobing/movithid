@@ -105,6 +105,7 @@
                                 <li><a href="box-office">Box Office</a></li>
                                 <li><a href="about-us">About Us</a></li>
                                 <li><a href="career">Career</a></li>
+                                <li><a href="demands">On Demands</a></li>
                             </ul>
                         </div>
                     </div>
