@@ -52,3 +52,7 @@ Route::get('sign-up', function () {
 
 // On Demands
 Route::get('demands', 'DemandsController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
