@@ -151,7 +151,7 @@
 
                         <div class="social-icons social-icons">
                             <ul>
-                                <li class="instagram"><a href="https://instagram.com/movithid" target="_blank"><i
+                                <li class="instagram"><a href="https://instagram.com/movith.id" target="_blank"><i
                                             class="fab fa-instagram"></i></a></li>
                                 <li class="social-facebook"><a href="https://www.facebook.com/movithid"
                                         target="_blank"><i class="fab fa-facebook-f"></i></a></li>
