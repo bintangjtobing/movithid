@@ -43,16 +43,10 @@ Route::get('investor-relations', function () {
 });
 
 // Halaman Authorizations
-Route::get('sign-in', function () {
-    return view('homepage.signin');
-});
-Route::get('sign-up', function () {
-    return view('homepage.register');
-});
+Route::get('sign-in', 'LoginController@signin')->name('signin');
+Route::get('sign-up', 'LoginController@signup');
 
 // On Demands
-Route::get('demands', 'DemandsController@index');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/demands', 'DemandsController@index');

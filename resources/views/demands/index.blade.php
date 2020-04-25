@@ -10,8 +10,8 @@
                     <h4><img class="weather-img"
                             src="https://res.cloudinary.com/sarjanamalam/image/upload/v1587367217/movith/rain_thunder_zwvoo7.svg"
                             alt="Weather"></h4>
-                    <h4>{{$data->cityName}} | 30<sup>o</sup>C</h4>
-                    <p>{{$data->latitude}}, {{$data->longitude}}</p>
+                    <h4> | 30<sup>o</sup>C</h4>
+                    {{-- <p>{{$data->latitude}}, {{$data->longitude}}</p> --}}
                 </div>
             </div>
             <div class="col-lg-9">
@@ -25,8 +25,8 @@
             <div class="col-lg-12 m-t-15">
                 <div class="boxoffice">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <video id="vid" class="embed-responsive-item" loop="true" preload="auto" autoplay="autoplay"
-                            allowfullscreen muted>
+                        <video id="vid" class="embed-responsive-item" controls controlsList="nodownload" loop="true"
+                            preload="auto" autoplay="autoplay" allowfullscreen muted>
                             <source
                                 src="https://res.cloudinary.com/sarjanamalam/video/upload/v1587372262/movith/video/Mengurangi_Penggunaan_Pelastik_lf5qeg.mp4"
                                 type="video/mp4">
