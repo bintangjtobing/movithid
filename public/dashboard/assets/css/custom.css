@@ -1,3 +1,20 @@
 .text-carolina {
     color: #9c0315 !important;
 }
+
+.card-title img {
+    width: 200px;
+}
+
+.card-title {
+    font-weight: 400 !important;
+    color: #fff !important;
+}
+
+.card-subtitle .col-md-6 {
+    font-size: .8rem;
+}
+
+.modal-footer {
+    border-top: 0 !important;
+}

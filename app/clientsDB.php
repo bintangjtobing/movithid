@@ -11,8 +11,9 @@ class clientsDB extends Model
         'clients_name',
         'phone',
         'email',
-        'city',
-        'longterms',
-        'terms',
+        'deskripsi',
+        'namausaha',
+        'username',
+        'password',
     ];
 }

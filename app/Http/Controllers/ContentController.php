@@ -7,6 +7,7 @@ use App\adsDB;
 use App\boxofficeDB;
 use App\clientsDB;
 use App\User;
+use App\placesDB;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -19,11 +20,41 @@ class ContentController extends Controller
     {
         return view('dashboard.content.ads');
     }
+    // Client and places section
     public function client()
     {
         $client = clientsDB::all();
-        return view('dashboard.content.client', ['client' => $client]);
+        $places = placesDB::all();
+        return view('dashboard.content.client', ['client' => $client, 'places' => $places]);
     }
+    public function addclient(Request $request)
+    {
+        $generate_password = str_random(6);
+        $client = new clientsDB;
+        $client->clients_name = $request->fullname;
+        $client->phone = $request->phone;
+        $client->email = $request->email;
+        $client->deskripsi = $request->deskripsi;
+        $client->namausaha = $request->namausaha;
+        $client->username = $request->username;
+        $client->password = $generate_password;
+        return back()->with('selesai', 'Tambah data client berhasil ditambah.');
+    }
+    public function addplaces(Request $request)
+    {
+        $generate_password = str_random(6);
+        $places = new placesDB;
+        $places->nama = $request->name;
+        $places->nama_toko = $request->nama_toko;
+        $places->alamat_toko = $request->alamat_toko;
+        $places->email = $request->email;
+        $places->password = $generate_password;
+        $places->nohp = $request->nohp;
+        $places->spesifikasitv = $request->spesifikasi;
+        $places->smarttv = $request->smarttv;
+        return back()->with('selesai', 'Yey! Kamu berhasil menambahkan data toko/tempat lainnya untuk kita bisa masukkan iklan lagi nih!');
+    }
+    // End section client and places
 
     // USER SECTION
     public function user()

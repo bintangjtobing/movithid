@@ -11,7 +11,7 @@
                             Managements</span></a>
                 </li>
                 <li class="active">
-                    <a href="/client"><i class="ti-target"></i><span class="menu-text">Client
+                    <a href="/client"><i class="ti-target"></i><span class="menu-text">Client/Place
                             Managements</span></a>
                 </li>
                 <li class="active">

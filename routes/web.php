@@ -72,4 +72,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/update-data/{id}', 'ContentController@updateuser');
     Route::get('/delete-data-user/{id}', 'ContentController@deleteuser');
     Route::post('/add-user', 'ContentController@adduser');
+
+    Route::post('/add-client', 'ContentController@addclient');
+    Route::post('/add-places', 'ContentController@addplaces');
 });

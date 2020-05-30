@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Movith Managements Control | @yield('title')</title>
     <link rel="stylesheet" href="dashboard/assets/css/siqtheme.css" />
-    <script src="https://kit.fontawesome.com/ae026c985d.js" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/bf3b9c3659.js" crossorigin="anonymous"></script>
     </script>
     <link rel="stylesheet" href="dashboard/assets/css/custom.css" />
     <link rel="stylesheet" href="dashboard/assets/css/plus.css">

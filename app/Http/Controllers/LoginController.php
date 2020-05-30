@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use App\clientsDB;
 use Carbon\Traits\Timestamp;
 
 class LoginController extends Controller
@@ -33,8 +34,6 @@ class LoginController extends Controller
         $data_member->phone = $request->phone;
         $data_member->unpassword = $request->password;
         $data_member->password = Hash::make($request->password);
-        $data_member->building = $request->place;
-        $data_member->building_name = $request->placename;
         $data_member->city = $request->city;
         $data_member->status = 'unactived';
         $data_member->save();

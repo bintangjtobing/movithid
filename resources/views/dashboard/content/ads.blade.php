@@ -35,6 +35,28 @@
 </div>
 @endif
 <div class="row">
-
+    <div class="col-md-12 mb-3">
+        <a href="#" class="btn btn-primary btn-block"><i class="ti-plus"></i> Add Video</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title"><img
+                        src="https://4.bp.blogspot.com/-2csNtMPzk5I/WODkAVO7HGI/AAAAAAAABHU/Yq3Y0BuqhvYvVAn4QZ04uYiDrWgKJ901wCLcB/s1600/Chickeet.jpg"
+                        alt=""></h4>
+                <h4 class="card-title">Chickert</h4>
+                <h6 class="card-subtitle mb-2">Keripik Ceker Ayam</h6>
+                <p class="card-text">
+                    Sensasi Ngemil Sehat Paling Nikmat
+                </p>
+                <p class="card-text">
+                    <a href="#" class="btn btn-primary btn-sm">Edit</a> <a href="#"
+                        class="btn btn-danger btn-sm">Delete</a>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
