@@ -41,12 +41,35 @@ Route::get('partners', function () {
 Route::get('investor-relations', function () {
     return view('homepage.investor');
 });
-
 // Halaman Authorizations
 Route::get('sign-in', 'LoginController@signin')->name('signin');
 Route::get('sign-up', 'LoginController@signup');
 
+// Auth Manual Controller
+Route::post('/create-account/{tokens}', 'LoginController@create_account');
+Route::post('/reset-account', 'LoginController@resetAccount');
+Route::get('/verification-user/{enc_id}/{tokens}', 'LoginController@verification');
+Route::get('/reset-account/{enc_id}/{tokens}', 'LoginController@getAcc');
+Route::get('/logout/{id}/{tokens}', 'AuthController@logout');
+Route::post('/get-verification/{tokens}', 'AuthController@validateLogin');
 // On Demands
 
-Auth::routes();
-Route::get('/demands', 'DemandsController@index');
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('dash', function () {
+        return view('dashboard.content.index');
+    });
+    Route::get('/demands', 'DemandsController@index');
+
+
+    // VIEW SECTION
+    Route::get('/user-management', 'ContentController@user');
+    Route::get('/client', 'ContentController@client');
+    Route::get('/ads-database', 'ContentController@ads');
+    Route::get('/box-office-database', 'ContentController@boxoffice');
+
+    // POST SECTION
+    Route::post('/update-data/{id}', 'ContentController@updateuser');
+    Route::get('/delete-data-user/{id}', 'ContentController@deleteuser');
+    Route::post('/add-user', 'ContentController@adduser');
+});

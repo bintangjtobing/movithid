@@ -73,11 +73,15 @@
                                     </ul>
 
                                     <ul>
-                                        <li class="dropdown"> <a href="#">Cafe Bintang Tobing<span
-                                                    class="menu-sub-title">Usernames</span></a>
+                                        <li class="dropdown"> <a href="#">{{auth()->user()->name}}<span
+                                                    class="menu-sub-title"><span style="color:#17ba91;"><i
+                                                            class="fas fa-circle"></i></span>
+                                                    Online</span></a>
                                             <ul class="dropdown-menu">
+                                                <?php $tokens =  bin2hex(openssl_random_pseudo_bytes(64));?>
                                                 <li><a href="#"><i class="icon-settings"></i> User Settings</a>
-                                                <li><a href="#"><i class="icon-log-out"></i> Logout</a>
+                                                <li><a href="/logout/{{auth()->user()->id}}/{{$tokens}}"><i
+                                                            class="icon-log-out"></i> Logout</a>
                                             </ul>
                                 </nav>
                             </div>
