@@ -12,7 +12,6 @@ class placesDB extends Model
         'nama_toko',
         'alamat_toko',
         'email',
-        'password',
         'nohp',
         'spesifikasitv',
         'smarttv',

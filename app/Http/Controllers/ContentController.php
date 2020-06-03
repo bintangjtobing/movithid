@@ -37,12 +37,41 @@ class ContentController extends Controller
         $client->deskripsi = $request->deskripsi;
         $client->namausaha = $request->namausaha;
         $client->username = $request->username;
-        $client->password = $generate_password;
+        $client->password = Hash::make($generate_password);
+        $client->unpassword = $generate_password;
         $client->updated_by = auth()->user()->name;
         $client->created_by = auth()->user()->name;
         $client->save();
         return back()->with('selesai', 'Tambah data client berhasil ditambah.');
     }
+    public function updateclients(Request $request, $id)
+    {
+        $client = clientsDB::find($id);
+        $client->clients_name = $request->fullname;
+        $client->phone = $request->phone;
+        $client->email = $request->email;
+        $client->deskripsi = $request->deskripsi;
+        $client->namausaha = $request->namausaha;
+        $client->username = $request->username;
+        $client->updated_by = auth()->user()->name;
+
+        $client->save();
+        return back()->with('selesai', 'Update data client berhasil diubah.');
+    }
+    public function deleteclient($id)
+    {
+        $client = clientsDB::find($id);
+
+        if ($client) {
+            if ($client->delete()) {
+
+                DB::statement('ALTER TABLE clients AUTO_INCREMENT = ' . (count(clientsDB::all()) + 1) . ';');
+
+                return back()->with('selesai', 'Client has been successfully deleted!');
+            }
+        }
+    }
+
     public function addplaces(Request $request)
     {
         $generate_password = str_random(6);
@@ -51,13 +80,41 @@ class ContentController extends Controller
         $places->nama_toko = $request->nama_toko;
         $places->alamat_toko = $request->alamat_toko;
         $places->email = $request->email;
-        $places->password = Hash::make($generate_password);
-        $places->unpassword = $generate_password;
         $places->nohp = $request->nohp;
         $places->spesifikasitv = $request->spesifikasi;
         $places->smarttv = $request->smarttv;
+        $places->updated_by = auth()->user()->name;
+        $places->created_by = auth()->user()->name;
         $places->save();
         return back()->with('selesai', 'Yey! Kamu berhasil menambahkan data toko/tempat lainnya untuk kita bisa masukkan iklan lagi nih!');
+    }
+    public function updateplaces(Request $request, $id)
+    {
+        $places = placesDB::find($id);
+        $places->nama = $request->name;
+        $places->nama_toko = $request->nama_toko;
+        $places->alamat_toko = $request->alamat_toko;
+        $places->email = $request->email;
+        $places->nohp = $request->nohp;
+        $places->spesifikasitv = $request->spesifikasi;
+        $places->smarttv = $request->smarttv;
+        $places->updated_by = auth()->user()->name;
+        $places->save();
+        return back()->with('selesai', 'Yes! Kamu berhasil update data toko/tempat movith.');
+        // dd($places);
+    }
+    public function deleteplaces($id)
+    {
+        $places = placesDB::find($id);
+
+        if ($places) {
+            if ($places->delete()) {
+
+                DB::statement('ALTER TABLE places AUTO_INCREMENT = ' . (count(placesDB::all()) + 1) . ';');
+
+                return back()->with('selesai', 'Places has been successfully deleted!');
+            }
+        }
     }
     // End section client and places
 

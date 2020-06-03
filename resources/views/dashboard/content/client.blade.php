@@ -66,14 +66,142 @@
                                 <td>{{$client->clients_name}}</td>
                                 <td>{{$client->email}}</td>
                                 <td>{{$client->phone}}</td>
-
-                                <td align="center"><a data-toggle="modal" data-target="#view{{$client->id}}"
+                                <td align="center"><a data-toggle="modal" data-target="#viewclients{{$client->id}}"
                                         class="btn btn-outline-success"><i class="ti-eye"></i></a> <a
-                                        data-toggle="modal" data-target="#update{{$client->id}}"
+                                        data-toggle="modal" data-target="#updateclients{{$client->id}}"
                                         class="btn btn-outline-primary"><i class="ti-pencil-alt"></i></a> <a
-                                        href="/delete-data-user/{{$client->id}}" class="btn btn-outline-danger"><i
+                                        href="/delete-client/{{$client->id}}" class="btn btn-outline-danger"><i
                                             class="ti-trash"></i></a></td>
                             </tr>
+                            {{-- MODAL VIEW USER --}}
+                            <div class="modal fade" id="viewclients{{$client->id}}" tabindex="-1" role="dialog"
+                                aria-labelledby="viewclients{{$client->id}}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="viewclients{{$client->id}}">Informasi Detail
+                                                {{$client->name}}</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4>Informasi Penanggung Jawab</h4>
+                                            <p>
+                                                Nama: {{$client->clients_name}} <br>
+                                                Username: {{$client->username}} <br>
+                                                Email: {{$client->email}} <br>
+                                                Kontak Nomor: {{$client->phone}} <br>
+                                                Password: {{$client->unpassword}} <br>
+                                            </p>
+                                            <h4>Informasi Data Usaha Client</h4>
+                                            <p>
+                                                Nama Usaha: {{$client->namausaha}} <br>
+                                                Deskripsi: {{$client->deskripsi}} <br>
+                                            </p>
+                                            <h4>Informasil Data Sistem</h4>
+                                            <p>
+                                                Dibuat tanggal: {{$client->created_at}} <br>
+                                                Dibuat oleh user: {{$client->created_by}}
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer"><button type="button"
+                                                class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- Modal Update Client --}}
+                            <div class="modal fade" id="updateclients{{$client->id}}" tabindex="-1" role="dialog"
+                                aria-labelledby="update{{$client->id}}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="update{{$client->id}}">Update Data
+                                                {{$client->clients_name}}</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/update-clients/{{$client->id}}" method="POST"
+                                                id="formupdate{{$client->id}}">
+                                                @csrf
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="">Nama Usaha (PT/CV/UD/Lainnya)</label>
+                                                        <input type="text" name="namausaha" class="form-control"
+                                                            value="{{$client->namausaha}}" required>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group"><label>Full Name</label> <input
+                                                                    class="form-control" name="fullname"
+                                                                    value="{{$client->clients_name}}" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="">Email</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i
+                                                                                class="ti-email"></i></span>
+                                                                    </div>
+                                                                    <input type="email" class="form-control"
+                                                                        value="{{$client->email}}" name="email"
+                                                                        required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i
+                                                                                class="ti-user"></i></span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        value="{{$client->username}}" name="username"
+                                                                        required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i
+                                                                                class="ti-tablet"></i></span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        value="{{$client->phone}}" name="phone"
+                                                                        required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <h4>Informasi Usaha</h4>
+                                                    <div class="form-group">
+                                                        <label for="">Ceritakan usaha yang dimiliki:</label>
+                                                        <textarea name="deskripsi" id="" cols="30" rows="10"
+                                                            class="form-control"
+                                                            required>{!!$client->deskripsi!!}</textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" form="formupdate{{$client->id}}"
+                                                        class="btn btn-outline-primary">Update
+                                                        Perubahan</button>
+                                                    <button type="button" class="btn btn-outline-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             @endforeach
                             @else
                             <tr>
@@ -116,13 +244,149 @@
                             <tr>
                                 <td>{{$places->nama_toko}}</td>
                                 <td>{{$places->alamat_toko}}</td>
-                                <td align="center"><a data-toggle="modal" data-target="#view{{$places->id}}"
+                                <td align="center"><a data-toggle="modal" data-target="#viewplaces{{$places->id}}"
                                         class="btn btn-outline-success"><i class="ti-eye"></i></a> <a
-                                        data-toggle="modal" data-target="#update{{$places->id}}"
+                                        data-toggle="modal" data-target="#updateplaces{{$places->id}}"
                                         class="btn btn-outline-primary"><i class="ti-pencil-alt"></i></a> <a
-                                        href="/delete-data-user/{{$places->id}}" class="btn btn-outline-danger"><i
+                                        href="/delete-places/{{$places->id}}" class="btn btn-outline-danger"><i
                                             class="ti-trash"></i></a></td>
                             </tr>
+                            {{-- MODAL VIEW USER --}}
+                            <div class="modal fade" id="viewplaces{{$places->id}}" tabindex="-1" role="dialog"
+                                aria-labelledby="viewplaces{{$places->id}}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="viewplaces{{$places->id}}">Informasi Detail
+                                                {{$places->nama_toko}}</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4>Informasi Penanggung Jawab</h4>
+                                            <p>
+                                                Nama: {{$places->nama}} <br>
+                                                Email: {{$places->email}} <br>
+                                                Kontak Nomor: {{$places->nohp}} <br>
+                                            </p>
+                                            <h4>Informasi Data Toko/Tempat</h4>
+                                            <p>
+                                                Nama Toko/Tempat: {{$places->nama_toko}} <br>
+                                                Alamat Toko: {{$places->alamat_toko}} <br>
+                                                Spesifikasi TV: {{$places->spesifikasitv}} <br>
+                                                Apakah toko tersebut memiliki spesifikasi smart tv? <br>
+                                                {{$places->smarttv}}
+                                            </p>
+                                            <h4>Informasil Data Sistem</h4>
+                                            <p>
+                                                Dibuat tanggal: {{$places->created_at}} <br>
+                                                Dibuat oleh user: {{$places->created_by}} <br>
+                                                Terakhir ubah data: {{$places->updated_at}} <br>
+                                            </p>
+                                        </div>
+                                        <div class="modal-footer"><button type="button"
+                                                class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- Modal Update Places --}}
+                            <div class="modal fade" id="updateplaces{{$places->id}}" tabindex="-1" role="dialog"
+                                aria-labelledby="updateplaces{{$places->id}}" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="update{{$places->id}}">Update Data Toko
+                                                {{$places->nama_toko}}</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/update-places/{{$places->id}}" method="POST"
+                                                id="formupdateplaces{{$places->id}}">
+                                                @csrf
+                                                <div class="card-body">
+                                                    <h4>Informasi Penanggung Jawab</h4>
+                                                    <div class="form-group">
+                                                        <label for="">Nama penanggung jawab</label>
+                                                        <input type="text" name="name" class="form-control"
+                                                            value="{{$places->nama}}" required>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group"><label>Email</label> <input
+                                                                    type="email" class="form-control" name="email"
+                                                                    value="{{$places->email}}" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="">Nomor Telepon</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i
+                                                                                class="ti-tablet"></i></span>
+                                                                    </div>
+                                                                    <input type="text" class="form-control"
+                                                                        value="{{$places->nohp}}" name="nohp" required>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <h4>Informasi Toko</h4>
+                                                    <div class="form-row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="">Nama Toko</label>
+                                                                <input type="text" name="nama_toko"
+                                                                    value="{{$places->nama_toko}}" id=""
+                                                                    class="form-control" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="">Alamat Toko</label>
+                                                                <input type="text" name="alamat_toko"
+                                                                    value="{{$places->alamat_toko}}"
+                                                                    class="form-control" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="">Tipe TV</label>
+                                                                <select name="smarttv" id=""
+                                                                    class="form-control custom-select" required>
+                                                                    <option value="Smart TV">Smart TV</option>
+                                                                    <option value="Bukan Smart TV">Bukan Smart TV
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                <label for="">Spesifikasi TV</label>
+                                                                <textarea name="spesifikasi" id="" cols="30" rows="6"
+                                                                    class="form-control"
+                                                                    required>{!!$places->spesifikasitv!!}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="submit" form="formupdateplaces{{$places->id}}"
+                                                        class="btn btn-outline-primary">Update
+                                                        Perubahan</button>
+                                                    <button type="button" class="btn btn-outline-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             @endforeach
                             @else
                             <tr>
