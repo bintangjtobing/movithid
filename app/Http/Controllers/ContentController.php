@@ -38,6 +38,9 @@ class ContentController extends Controller
         $client->namausaha = $request->namausaha;
         $client->username = $request->username;
         $client->password = $generate_password;
+        $client->updated_by = auth()->user()->name;
+        $client->created_by = auth()->user()->name;
+        $client->save();
         return back()->with('selesai', 'Tambah data client berhasil ditambah.');
     }
     public function addplaces(Request $request)
@@ -48,10 +51,12 @@ class ContentController extends Controller
         $places->nama_toko = $request->nama_toko;
         $places->alamat_toko = $request->alamat_toko;
         $places->email = $request->email;
-        $places->password = $generate_password;
+        $places->password = Hash::make($generate_password);
+        $places->unpassword = $generate_password;
         $places->nohp = $request->nohp;
         $places->spesifikasitv = $request->spesifikasi;
         $places->smarttv = $request->smarttv;
+        $places->save();
         return back()->with('selesai', 'Yey! Kamu berhasil menambahkan data toko/tempat lainnya untuk kita bisa masukkan iklan lagi nih!');
     }
     // End section client and places

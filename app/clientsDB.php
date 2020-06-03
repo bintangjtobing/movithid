@@ -15,5 +15,7 @@ class clientsDB extends Model
         'namausaha',
         'username',
         'password',
+        'created_by', 'updated_by',
+        'unpassword',
     ];
 }

@@ -16,5 +16,6 @@ class placesDB extends Model
         'nohp',
         'spesifikasitv',
         'smarttv',
+        'created_by', 'updated_by',
     ];
 }

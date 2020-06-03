@@ -63,7 +63,7 @@
                             @if(!$client->isEmpty())
                             @foreach ($client as $client)
                             <tr>
-                                <td>{{$client->client_name}}</td>
+                                <td>{{$client->clients_name}}</td>
                                 <td>{{$client->email}}</td>
                                 <td>{{$client->phone}}</td>
 
@@ -151,12 +151,12 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="">Nama Usaha (PT/CV/UD/Lainnya)</label>
-                        <input type="text" name="namausaha" class="form-control" placeholder="Nama Usaha">
+                        <input type="text" name="namausaha" class="form-control" placeholder="Nama Usaha" required>
                     </div>
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group"><label>Full Name</label> <input class="form-control" name="fullname"
-                                    placeholder="Your Fullname">
+                                    placeholder="Your Fullname" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -166,7 +166,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ti-email"></i></span>
                                     </div>
-                                    <input type="email" class="form-control" placeholder="Your Email" name="email">
+                                    <input type="email" class="form-control" placeholder="Your Email" name="email"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +179,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ti-user"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Your Username" name="username">
+                                    <input type="text" class="form-control" placeholder="Your Username" name="username"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +190,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ti-tablet"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Nomor Kontak" name="phone">
+                                    <input type="text" class="form-control" placeholder="Nomor Kontak" name="phone"
+                                        required>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +200,7 @@
                     <h4>Informasi Usaha</h4>
                     <div class="form-group">
                         <label for="">Ceritakan usaha yang dimiliki:</label>
-                        <textarea name="deskripsi" id="" cols="30" rows="10" class="form-control"></textarea>
+                        <textarea name="deskripsi" id="" cols="30" rows="10" class="form-control" required></textarea>
                     </div>
                     <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
                             data-dismiss="modal">Close</button>
@@ -224,12 +227,13 @@
                     <h4>Informasi Penanggung Jawab</h4>
                     <div class="form-group">
                         <label for="">Nama penanggung jawab</label>
-                        <input type="text" name="name" class="form-control" placeholder="Nama Penanggung Jawab">
+                        <input type="text" name="name" class="form-control" placeholder="Nama Penanggung Jawab"
+                            required>
                     </div>
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group"><label>Email</label> <input type="email" class="form-control"
-                                    name="email" placeholder="Your Email">
+                                    name="email" placeholder="Your Email" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -240,7 +244,7 @@
                                         <span class="input-group-text"><i class="ti-tablet"></i></span>
                                     </div>
                                     <input type="text" class="form-control"
-                                        placeholder="Nomor Telepon yang Bisa Dihubungi" name="nohp">
+                                        placeholder="Nomor Telepon yang Bisa Dihubungi" name="nohp" required>
                                 </div>
                             </div>
                         </div>
@@ -251,13 +255,13 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Nama Toko</label>
-                                <input type="text" name="nama_toko" placeholder="" id="" class="form-control">
+                                <input type="text" name="nama_toko" placeholder="" id="" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Alamat Toko</label>
-                                <input type="text" name="alamat_toko" id="" class="form-control">
+                                <input type="text" name="alamat_toko" id="" class="form-control" required>
                             </div>
                         </div>
                     </div>
@@ -265,7 +269,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Tipe TV</label>
-                                <select name="smarttv" id="" class="form-control custom-select">
+                                <select name="smarttv" id="" class="form-control custom-select" required>
                                     <option value="Smart TV">Smart TV</option>
                                     <option value="Bukan Smart TV">Bukan Smart TV</option>
                                 </select>
@@ -274,7 +278,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Spesifikasi TV</label>
-                                <textarea name="spesifikasi" id="" cols="30" rows="6" class="form-control"></textarea>
+                                <textarea name="spesifikasi" id="" cols="30" rows="6" class="form-control"
+                                    required></textarea>
                             </div>
                         </div>
                     </div>
