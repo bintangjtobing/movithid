@@ -10,7 +10,6 @@ class adsDB extends Model
     protected $fillable = [
         'judul_ads',
         'desc_ads', 'requester',
-        'fileads',
-
+        'fileads', 'kategori', 'lama_kontrak', 'datefinished', 'coverimg', 'starteddate',
     ];
 }
