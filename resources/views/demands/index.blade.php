@@ -25,20 +25,9 @@
             <div class="col-lg-12 m-t-15">
                 <div class="boxoffice">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <video id="vid" class="embed-responsive-item" controls controlsList="nodownload" loop="true"
-                            preload="auto" autoplay="autoplay" allowfullscreen muted>
-                            <source
-                                src="https://res.cloudinary.com/sarjanamalam/video/upload/v1587372262/movith/video/Mengurangi_Penggunaan_Pelastik_lf5qeg.mp4"
-                                type="video/mp4">
-                            <source
-                                src="https://res.cloudinary.com/sarjanamalam/video/upload/v1587372264/movith/video/LOGO_OPENER_-_imedia_16_hsiccq.mp4"
-                                type="video/mp4">
-                            <source
-                                src="https://res.cloudinary.com/sarjanamalam/video/upload/v1587372261/movith/video/imediaproperti_vah57s.mp4"
-                                type="video/mp4">
-                            <source
-                                src="https://res.cloudinary.com/sarjanamalam/video/upload/v1587372261/movith/video/LOGO_OPENER_-_IMEDIA_14_mempr1.mp4"
-                                type="video/mp4">
+                        <video id="vid" class="embed-responsive-item" controls loop autoplay allowfullscreen>
+                            <source src="media/mp4/Mengurangi-Penggunaan-Pelastik.mp4" type="video/mp4">
+                            {{-- <source src="media/ogg/Mengurangi-Penggunaan-Pelastik.ogg" type="video/ogg"> --}}
                         </video>
                     </div>
 

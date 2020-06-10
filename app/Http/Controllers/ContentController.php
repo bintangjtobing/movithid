@@ -16,10 +16,7 @@ use Illuminate\Support\Facades\Hash;
 class ContentController extends Controller
 {
     // VIEW SECTION
-    public function ads()
-    {
-        return view('dashboard.content.ads');
-    }
+
     // Client and places section
     public function client()
     {
@@ -170,8 +167,22 @@ class ContentController extends Controller
     }
     // END USER SECTION
 
+    // Ads video controller
+    public function ads()
+    {
+        return view('dashboard.content.ads');
+    }
+    public function adsvideoadd(Request $request)
+    {
+    }
+    // End ads video controller
+    // Box Office Controller
     public function boxoffice()
     {
         return view('dashboard.content.boxoffice');
     }
+    public function boxofficeadd(Request $request)
+    {
+    }
+    // End Box Office Controller
 }

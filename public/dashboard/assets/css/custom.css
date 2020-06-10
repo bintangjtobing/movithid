@@ -3,7 +3,7 @@
 }
 
 .card-title img {
-    width: 200px;
+    max-width: 210px;
 }
 
 .card-title {
