@@ -174,6 +174,19 @@ class ContentController extends Controller
     }
     public function adsvideoadd(Request $request)
     {
+        $this->validate($request, [
+            'coverimg' => 'required|required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            'fileads' =>
+            'required|mimes:mp4,ogx,oga,ogv,ogg,webm',
+        ]);
+
+        $ads = new adsDB();
+        $ads->judul_ads = $request->judul_ads;
+        $ads->desc_ads = $request->desc_ads;
+        $ads->requester = auth()->user()->name;
+        $ads->kategori = $request->kategori;
+        $ads->lama_kontrak = $request->lama_kontrak;
+        $ads->starteddate = $request->starteddate;
     }
     // End ads video controller
     // Box Office Controller
@@ -183,6 +196,11 @@ class ContentController extends Controller
     }
     public function boxofficeadd(Request $request)
     {
+        $this->validate($request, [
+            'coverimg' => 'required|required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            'file' =>
+            'required|mimes:mp4,ogx,oga,ogv,ogg,webm',
+        ]);
     }
     // End Box Office Controller
 }
