@@ -18,4 +18,8 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    memory_limit = 32M
+upload_max_filesize = 24M
+post_max_size = 32M
 </IfModule>

@@ -1,4 +1,7 @@
 <?php
+ini_set('file_uploads', 'On');
+ini_set('upload_max_filesize', 24);
+ini_set('post_max_size', 32);
 
 /**
  * Laravel - A PHP Framework For Web Artisans
@@ -21,7 +24,7 @@ define('LARAVEL_START', microtime(true));
 |
 */
 
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +38,7 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
+$app = require_once __DIR__ . '/../bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
