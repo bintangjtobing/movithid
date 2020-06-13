@@ -22,6 +22,9 @@
                     <a href="/box-office-database"><i class="ti-video-camera"></i><span class="menu-text">Box Office
                             Databases</span></a>
                 </li>
+                <li class="active">
+                    <a href="/blog-management"><i class="ti-clipboard"></i><span class="menu-text">Blog</span></a>
+                </li>
                 <li class="header-menu">Asking for help</li>
                 <li class="active">
                     <a href="mailto:hello@bintangtobing.com"><i class="ti-github"></i><span class="menu-text">Ask

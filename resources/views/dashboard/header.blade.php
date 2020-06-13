@@ -18,6 +18,9 @@
             </form>
             <div class="navbar-menu d-flex">
                 <div class="menu-item">
+                    <a href="/demands" target="_blank" class="btn"><i class="ti-video-camera"></i> </a>
+                </div>
+                <div class="menu-item">
                     <a href="#" class="btn" data-toggle="dropdown"><i class="ti-bell"></i> <span
                             class="badge badge-pill badge-danger">3</span></a>
                     <ul class="dropdown-menu dropdown-menu-right dropdown-alert">

@@ -217,7 +217,8 @@ class ContentController extends Controller
     // Box Office Controller
     public function boxoffice()
     {
-        return view('dashboard.content.boxoffice');
+        $box = boxofficeDB::all();
+        return view('dashboard.content.boxoffice', ['box' => $box]);
     }
     public function boxofficeadd(Request $request)
     {
@@ -226,6 +227,38 @@ class ContentController extends Controller
             'file' =>
             'required|mimes:mp4,ogx,oga,ogv,ogg,webm',
         ]);
+        $box = new boxofficeDB();
+        $box->judul = $request->judul;
+        $box->tahun_film = $request->tahun_film;
+        $box->created_by = auth()->user()->name;
+        $box->updated_by = auth()->user()->name;
+        $box->kategori_utama = $request->kategori_utama;
+        $box->sub_kategori = $request->sub_kategori;
+        $box->sub_kategori2 = $request->sub_kategori2;
+        if ($request->hasFile('coverimg')) {
+            $request->file('coverimg')->move('media/boxoffice/coverimg/' . $request->judul . '/', $request->file('coverimg')->getClientOriginalName());
+            $box->coverimg = $request->file('coverimg')->getClientOriginalName();
+        }
+        if ($request->hasFile('file')) {
+            $request->file('file')->move('media/boxoffice/filefilm/' . $request->judul . '/', $request->file('file')->getClientOriginalName());
+            $box->file = $request->file('file')->getClientOriginalName();
+        }
+        $box->save();
+        return back()->with('selesai', 'Yeah! Film box office kamu berhasil diitambahkan!');
+        // dd($request->all());
+    }
+    public function deleteboxoffice($id)
+    {
+        $box = boxofficeDB::find($id);
+
+        if ($box) {
+            if ($box->delete()) {
+
+                DB::statement('ALTER TABLE boxoffice AUTO_INCREMENT = ' . (count(boxofficeDB::all()) + 1) . ';');
+
+                return back()->with('selesai', 'Film Box Office telah berhasil dihapus!');
+            }
+        }
     }
     // End Box Office Controller
 }

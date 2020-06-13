@@ -41,30 +41,78 @@
     </div>
 </div>
 <div class="row">
+    @if($box->isEmpty())
+    <div class="col-md-12 text-center">
+        No data in database right now. Please check again.
+    </div>
+    @else
+    @foreach ($box as $box)
     <div class="col-md-3">
         <div class="card mb-3">
             <div class="card-body">
-                <h4 class="card-title"><img
-                        src="https://1.bp.blogspot.com/-ZFgJr94OTCg/XiCRMmBA9bI/AAAAAAAADDk/vkXxVJ0Rj48vBZ3g9DX0q4ieImjrLEadwCLcBGAsYHQ/s1600/1-poster.jpg"
-                        alt=""></h4>
-                <h4 class="card-title"><i class="fas fa-film"></i> IP Man 4: The ...</h4>
+                <h4 class="card-title"><img src="media/boxoffice/coverimg/{{$box->judul}}/{{$box->coverimg}}" alt="">
+                </h4>
+                <h4 class="card-title"><i class="fas fa-film"></i> {{$box->judul}}</h4>
                 <h6 class="card-subtitle mb-2">
                     <div class="row">
                         <div class="col-md-8 text-left">
-                            Comedi, Drama, Fantasy
+                            {{$box->kategori_utama}}, {{$box->sub_kategori}}, {{$box->sub_kategori2}}
                         </div>
                         <div class="col-md-4 text-right">
-                            2020
+                            {{$box->tahun_film}}
                         </div>
                     </div>
                 </h6>
                 <p class="card-text">
-                    <a href="#" class="btn btn-primary btn-sm">Edit</a> <a href="#"
-                        class="btn btn-danger btn-sm">Delete</a>
+                    <a data-toggle="modal" data-target="#viewfilm{{$box->id}}" class="btn btn-outline-success"><i
+                            class="ti-eye"></i></a> <a data-toggle="modal" data-target="#updatefilm{{$box->id}}"
+                        class="btn btn-outline-primary"><i class="ti-pencil-alt"></i></a> <a
+                        href="/delete-film/{{$box->id}}" class="btn btn-outline-danger"><i class="ti-trash"></i></a>
                 </p>
             </div>
         </div>
     </div>
+    {{-- MODAL VIEW FILM --}}
+    <div class="modal fade" id="viewfilm{{$box->id}}" tabindex="-1" role="dialog" aria-labelledby="viewfilm{{$box->id}}"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewfilm{{$box->id}}">Informasi Detail
+                        {{$box->judul}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h3>Informasi Umum</h3>
+                            <p>
+                                Judul: {{$box->judul}}<br>
+                                Tahun terbit film: {{$box->tahun_film}} <br>
+                                Kategori film: {{$box->kategori_utama}}, {{$box->sub_kategori}}, {{$box->sub_kategori2}}
+                                <br>
+                            </p>
+                            <h4>Informasil Data Sistem</h4>
+                            <p>
+                                Dibuat tanggal: {{$box->created_at}} <br>
+                                Diupload oleh: {{$box->created_by}}
+                            </p>
+                        </div>
+                        <div class="col-md-5 text-right">
+                            <img class="viewadsimg" src="media/boxoffice/coverimg/{{$box->judul}}/{{$box->coverimg}}"
+                                alt="{{$box->judul}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
 </div>
 
 {{-- Add box office databases --}}
@@ -153,7 +201,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="">Sub Kategori 2</label>
-                                <select name="sub_kategori2" id="" class="form-control custom-select">
+                                <select name="sub_kategori2" id="" class="form-control custom-select" required>
                                     <option value="action">Action</option>
                                     <option value="adventure">Adventure</option>
                                     <option value="animation">Animation</option>
@@ -200,13 +248,13 @@
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="">Cover Box Office</label>
-                                <input type="file" name="coverimg" id="" class="form-control">
+                                <input type="file" name="coverimg" id="" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
                                 <label for="">Upload Film/Box Office</label>
-                                <input type="file" name="file" id="" class="form-control">
+                                <input type="file" name="file" id="" class="form-control" required>
                             </div>
                         </div>
                     </div>

@@ -25,10 +25,13 @@
             <div class="col-lg-12 m-t-15">
                 <div class="boxoffice">
                     <div class="embed-responsive embed-responsive-16by9">
-                        <video id="vid" class="embed-responsive-item" controls loop autoplay allowfullscreen>
-                            @foreach ($ads as $ads)
-                            <source src="media/fileads/{{$ads->requester}}/{{$ads->fileads}}" type="video/mp4">
-                            @endforeach
+                        <video id="vid" class="embed-responsive-item" controls preload="auto" loop autoplay
+                            allowfullscreen>
+                            {{-- @foreach ($ads as $ads)
+                            <source src="media/fileads/{!!$ads->requester!!}/{!!$ads->fileads!!}" type="video/mp4">
+                            @endforeach --}}
+                            <source src="media/fileads/BCA PT/LOGO OPENER - IMEDIA_14.mp4" type="video/mp4">
+                            <source src="media/fileads/Sarjanamalam/imediaproperti.mp4" type="video/mp4">
                         </video>
                     </div>
 

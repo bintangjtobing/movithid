@@ -12,6 +12,6 @@ class boxofficeDB extends Model
         'tahun_film',
         'file',
         'coverimg',
-        'created_by', 'updated_by','kategori_utama','sub_kategori', 'sub_kategori2'
+        'created_by', 'updated_by', 'kategori_utama', 'sub_kategori', 'sub_kategori2'
     ];
 }
