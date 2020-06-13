@@ -25,14 +25,19 @@
             <div class="col-lg-12 m-t-15">
                 <div class="boxoffice">
                     <div class="embed-responsive embed-responsive-16by9">
+                        @if($ads->isEmpty())
+                        <h5>No ads data here</h5>
+                        @else
                         <video id="vid" class="embed-responsive-item" controls preload="auto" loop autoplay
                             allowfullscreen>
-                            {{-- @foreach ($ads as $ads)
+                            @foreach ($ads as $ads)
                             <source src="media/fileads/{!!$ads->requester!!}/{!!$ads->fileads!!}" type="video/mp4">
-                            @endforeach --}}
-                            <source src="media/fileads/BCA PT/LOGO OPENER - IMEDIA_14.mp4" type="video/mp4">
-                            <source src="media/fileads/Sarjanamalam/imediaproperti.mp4" type="video/mp4">
+                            @endforeach
+
+                            {{-- <source src="media/fileads/BCA PT/LOGO OPENER - IMEDIA_14.mp4" type="video/mp4">
+                            <source src="media/fileads/Sarjanamalam/imediaproperti.mp4" type="video/mp4"> --}}
                         </video>
+                        @endif
                     </div>
 
                 </div>

@@ -23,7 +23,10 @@ class DemandsController extends Controller
         // Get Weather Info
         $lowm = new LaravelOWM();
 
-        $ads = adsDB::all();
+        $ads = DB::table('ads')
+            ->orderBy('ads.created_at', 'DESC')
+            ->select('ads.*')
+            ->get();
         $boxoffice = boxofficeDB::all();
         // $current_weather = $lowm->getCurrentWeather($cityGet);
         // dd($current_weather->temperature);
