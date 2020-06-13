@@ -26,8 +26,9 @@
                 <div class="boxoffice">
                     <div class="embed-responsive embed-responsive-16by9">
                         <video id="vid" class="embed-responsive-item" controls loop autoplay allowfullscreen>
-                            <source src="media/mp4/Mengurangi-Penggunaan-Pelastik.mp4" type="video/mp4">
-                            {{-- <source src="media/ogg/Mengurangi-Penggunaan-Pelastik.ogg" type="video/ogg"> --}}
+                            @foreach ($ads as $ads)
+                            <source src="media/fileads/{{$ads->requester}}/{{$ads->fileads}}" type="video/mp4">
+                            @endforeach
                         </video>
                     </div>
 

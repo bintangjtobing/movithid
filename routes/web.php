@@ -80,5 +80,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/delete-places/{id}', 'ContentController@deleteplaces');
 
     Route::post('/add-ads-video', 'ContentController@adsvideoadd');
+    Route::get('/delete-ads/{id}', 'ContentController@deleteads');
     Route::post('/add-box-office', 'ContentController@boxofficeadd');
 });

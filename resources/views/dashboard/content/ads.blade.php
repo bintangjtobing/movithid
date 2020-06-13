@@ -41,24 +41,116 @@
     </div>
 </div>
 <div class="row">
+    @if($ads->isEmpty())
+    <div class="col-md-12 text-center">
+        No data in this database.
+    </div>
+    @else
+    @foreach ($ads as $ads)
     <div class="col-md-3">
         <div class="card mb-3">
             <div class="card-body">
-                <h4 class="card-title"><img
-                        src="https://4.bp.blogspot.com/-2csNtMPzk5I/WODkAVO7HGI/AAAAAAAABHU/Yq3Y0BuqhvYvVAn4QZ04uYiDrWgKJ901wCLcB/s1600/Chickeet.jpg"
-                        alt=""></h4>
-                <h4 class="card-title">Chickert</h4>
-                <h6 class="card-subtitle mb-2">Keripik Ceker Ayam</h6>
+                <h4 class="card-title"><img src="media/coverimg/{{$ads->requester}}/{{$ads->coverimg}}" alt=""></h4>
+                <h4 class="card-title">{{$ads->judul_ads}}</h4>
+                <h6 class="card-subtitle mb-2">{{$ads->requester}} | {{$ads->kategori}}</h6>
                 <p class="card-text">
-                    Sensasi Ngemil Sehat Paling Nikmat
+                    {{$ads->desc_ads}}
                 </p>
                 <p class="card-text">
-                    <a href="#" class="btn btn-primary btn-sm">Edit</a> <a href="#"
-                        class="btn btn-danger btn-sm">Delete</a>
+                    <a data-toggle="modal" data-target="#viewads{{$ads->id}}" class="btn btn-outline-success"><i
+                            class="ti-eye"></i></a> <a data-toggle="modal" data-target="#updateads{{$ads->id}}"
+                        class="btn btn-outline-primary"><i class="ti-pencil-alt"></i></a> <a
+                        href="/delete-ads/{{$ads->id}}" class="btn btn-outline-danger"><i class="ti-trash"></i></a>
                 </p>
             </div>
         </div>
     </div>
+    {{-- MODAL VIEW Ads --}}
+    <div class="modal fade" id="viewads{{$ads->id}}" tabindex="-1" role="dialog" aria-labelledby="viewads{{$ads->id}}"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewads{{$ads->id}}">Informasi Detail
+                        {{$ads->judul_ads}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h3>Informasi Umum</h3>
+                            <p>
+                                Peminta Iklan: {{$ads->requester}} <br>
+                                <br>
+                                Judul Iklan: {{$ads->judul_ads}} <br>
+                                Deskripsi iklan: {!!$ads->desc_ads!!} <br><br>
+                                Kategori: {{$ads->kategori}} <br>
+                                Mulai iklan: {{$ads->starteddate}} <br>
+                                Selesai iklan: {{$ads->datefinished}} <br>
+                                Lama Kontrak: {{$ads->lama_kontrak}} <br>
+                            </p>
+                            <h4>Informasil Data Sistem</h4>
+                            <p>
+                                Dibuat tanggal: {{$ads->created_at}} <br>
+                            </p>
+                        </div>
+                        <div class="col-md-5 text-right">
+                            <img class="viewadsimg" src="media/coverimg/{{$ads->requester}}/{{$ads->coverimg}}"
+                                alt="{{$ads->judul_ads}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{-- MODAL Update Ads --}}
+    <div class="modal fade" id="updateads{{$ads->id}}" tabindex="-1" role="dialog"
+        aria-labelledby="updateads{{$ads->id}}" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateads{{$ads->id}}">Update iklan
+                        {{$ads->judul_ads}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h3>Informasi Umum</h3>
+                            <p>
+                                Peminta Iklan: {{$ads->requester}} <br>
+                                <br>
+                                Judul Iklan: {{$ads->judul_ads}} <br>
+                                Deskripsi iklan: {!!$ads->desc_ads!!} <br><br>
+                                Kategori: {{$ads->kategori}} <br>
+                                Mulai iklan: {{$ads->starteddate}} <br>
+                                Selesai iklan: {{$ads->datefinished}} <br>
+                                Lama Kontrak: {{$ads->lama_kontrak}} <br>
+                            </p>
+                            <h4>Informasil Data Sistem</h4>
+                            <p>
+                                Dibuat tanggal: {{$ads->created_at}} <br>
+                            </p>
+                        </div>
+                        <div class="col-md-5 text-right">
+                            <img class="viewadsimg" src="media/coverimg/{{$ads->requester}}/{{$ads->coverimg}}"
+                                alt="{{$ads->judul_ads}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
+                        data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    @endif
 </div>
 
 
@@ -96,7 +188,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="">Kategori iklan</label>
-                                <select name="kategori" class="form-control custom-select">
+                                <select name="kategori" class="form-control custom-select" required>
                                     <option value="Iklan Politik">Iklan Politik</option>
                                     <option value="Iklan Pendidikan">Iklan Pendidikan</option>
                                     <option value="Iklan Pendidikan">Iklan Pendidikan</option>
@@ -120,7 +212,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Lama Kontrak</label>
-                                <select name="lama_kontrak" class="form-control custom-select">
+                                <select name="lama_kontrak" class="form-control custom-select" required>
                                     <option value="1 Bulan">1 Bulan</option>
                                     <option value="3 Bulan">3 Bulan</option>
                                     <option value="6 Bulan">6 Bulan</option>
@@ -133,7 +225,7 @@
                             <div class="form-group">
                                 <label for="">Iklan mulai tayang</label>
                                 <input type="text" name="starteddate" value="10/24/2019" id="starteddate"
-                                    class="form-control">
+                                    class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -142,20 +234,19 @@
                                 <input type="text" name="datefinished" id="datefinished" class="form-control">
                             </div>
                         </div>
-
                     </div>
                     <h4>Informasi File Iklan</h4>
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Gambar sampul iklan</label>
-                                <input type="file" name="coverimg" id="coverimg" class="form-control">
+                                <input type="file" name="coverimg" id="coverimg" class="form-control" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Upload file iklan</label>
-                                <input type="file" name="fileads" id="fileads" class="form-control">
+                                <input type="file" name="fileads" id="fileads" class="form-control" required>
                             </div>
                         </div>
                     </div>

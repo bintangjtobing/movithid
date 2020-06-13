@@ -170,24 +170,48 @@ class ContentController extends Controller
     // Ads video controller
     public function ads()
     {
-        return view('dashboard.content.ads');
+        $ads = adsDB::all();
+        return view('dashboard.content.ads', ['ads' => $ads]);
     }
     public function adsvideoadd(Request $request)
     {
-        // $this->validate($request, [
-        //     'coverimg' => 'required|required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-        //     'fileads' =>
-        //     'required|mimes:mp4,ogx,oga,ogv,ogg,webm',
-        // ]);
-        // $ads = new adsDB();
-        // $ads->judul_ads = $request->judul_ads;
-        // $ads->desc_ads = $request->desc_ads;
-        // $ads->requester = auth()->user()->name;
-        // $ads->kategori = $request->kategori;
-        // $ads->lama_kontrak = $request->lama_kontrak;
-        // $ads->starteddate = $request->starteddate;
+        $this->validate($request, [
+            'coverimg' => 'required|required|image|mimes:jpeg,png,jpg,gif,svg|max:5048',
+            'fileads' =>
+            'required|mimes:mp4,ogx,oga,ogv,ogg,webm',
+        ]);
+        $ads = new adsDB();
+        $ads->judul_ads = $request->judul_ads;
+        $ads->desc_ads = $request->desc_ads;
+        $ads->requester = $request->requester;
+        if ($request->hasFile('fileads')) {
+            $request->file('fileads')->move('media/fileads/' . $request->requester . '/', $request->file('fileads')->getClientOriginalName());
+            $ads->fileads = $request->file('fileads')->getClientOriginalName();
+        }
+        $ads->kategori = $request->kategori;
+        $ads->lama_kontrak = $request->lama_kontrak;
+        $ads->starteddate = $request->starteddate;
+        $ads->datefinished = $request->datefinished;
+        if ($request->hasFile('coverimg')) {
+            $request->file('coverimg')->move('media/coverimg/' . $request->requester . '/', $request->file('coverimg')->getClientOriginalName());
+            $ads->coverimg = $request->file('coverimg')->getClientOriginalName();
+        }
+        $ads->save();
+        return back()->with('selesai', 'Yeah! File iklan kamu berhasil diitambahkan!');
+        // dd($request->all());
+    }
+    public function deleteads($id)
+    {
+        $ads = adsDB::find($id);
 
-        dd($request->all());
+        if ($ads) {
+            if ($ads->delete()) {
+
+                DB::statement('ALTER TABLE ads AUTO_INCREMENT = ' . (count(adsDB::all()) + 1) . ';');
+
+                return back()->with('selesai', 'File iklan telah berhasil dihapus!');
+            }
+        }
     }
     // End ads video controller
     // Box Office Controller

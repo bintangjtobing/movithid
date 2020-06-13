@@ -3,7 +3,7 @@
 }
 
 .card-title img {
-    max-width: 210px;
+    max-width: 200px;
 }
 
 .card-title {
@@ -17,4 +17,8 @@
 
 .modal-footer {
     border-top: 0 !important;
+}
+
+.viewadsimg {
+    max-width: 200px;
 }
