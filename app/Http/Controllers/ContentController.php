@@ -22,7 +22,8 @@ class ContentController extends Controller
     {
         $client = clientsDB::all();
         $places = placesDB::all();
-        return view('dashboard.content.client', ['client' => $client, 'places' => $places]);
+        $ads = adsDB::all();
+        return view('dashboard.content.client', ['client' => $client, 'places' => $places, 'ads' => $ads]);
     }
     public function addclient(Request $request)
     {

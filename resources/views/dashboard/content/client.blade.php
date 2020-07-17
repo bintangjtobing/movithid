@@ -547,6 +547,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form-row">
+                        <div class="col-md-6">
+                            <h3>Tambah Video</h3>
+                            <select class="form-control" name="" id="">
+                                @foreach ($ads as $ads)
+                                <option value="{{$ads->id}}">{{$ads->judul_ads}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
 
                     <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
                             data-dismiss="modal">Close</button>
