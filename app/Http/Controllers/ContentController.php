@@ -27,6 +27,8 @@ class ContentController extends Controller
     }
     public function addclient(Request $request)
     {
+
+
         $generate_password = str_random(6);
         $client = new clientsDB;
         $client->clients_name = $request->fullname;
@@ -42,6 +44,7 @@ class ContentController extends Controller
         $client->save();
         return back()->with('selesai', 'Tambah data client berhasil ditambah.');
     }
+
     public function updateclients(Request $request, $id)
     {
         $client = clientsDB::find($id);
@@ -56,6 +59,7 @@ class ContentController extends Controller
         $client->save();
         return back()->with('selesai', 'Update data client berhasil diubah.');
     }
+
     public function deleteclient($id)
     {
         $client = clientsDB::find($id);
@@ -72,6 +76,10 @@ class ContentController extends Controller
 
     public function addplaces(Request $request)
     {
+
+
+        //dd($request->input('id_ads'));
+
         $generate_password = str_random(6);
         $places = new placesDB;
         $places->nama = $request->name;
@@ -84,6 +92,17 @@ class ContentController extends Controller
         $places->updated_by = auth()->user()->name;
         $places->created_by = auth()->user()->name;
         $places->save();
+
+        $lastInsertId = $places->id;
+
+        foreach($request->input('id_ads') as $id_ads) {
+            DB::table('places_video')
+                ->insert([
+                    'id_place' => $lastInsertId,
+                    'id_ads' => $id_ads
+                ]);
+        }
+
         return back()->with('selesai', 'Yey! Kamu berhasil menambahkan data toko/tempat lainnya untuk kita bisa masukkan iklan lagi nih!');
     }
     public function updateplaces(Request $request, $id)
@@ -98,6 +117,20 @@ class ContentController extends Controller
         $places->smarttv = $request->smarttv;
         $places->updated_by = auth()->user()->name;
         $places->save();
+
+        DB::table('places_video')
+            ->where('id_place', $id)
+            ->delete();
+
+        foreach($request->input('id_ads') as $id_ads) {
+            DB::table('places_video')
+                ->insert([
+                    'id_place' => $id,
+                    'id_ads' => $id_ads
+                ]);
+        }
+
+
         return back()->with('selesai', 'Yes! Kamu berhasil update data toko/tempat movith.');
         // dd($places);
     }

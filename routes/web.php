@@ -11,7 +11,11 @@
 |
 */
 
+
+use Illuminate\Support\Facades\Hash;
+
 Route::get('/', function () {
+    //echo Hash::make('bintangjtobing');
     return view('homepage.index');
 });
 Route::get('ads', function () {
@@ -42,8 +46,13 @@ Route::get('investor-relations', function () {
     return view('homepage.investor');
 });
 // Halaman Authorizations
+// halaman menuju demands
 Route::get('sign-in', 'LoginController@signin')->name('signin');
 Route::get('sign-up', 'LoginController@signup');
+
+// menuju administrator dash
+Route::post('/administrator/{tokens}','AuthController@validateadministrator');
+Route::get('administrator','LoginController@administrator');
 
 // Auth Manual Controller
 Route::post('/create-account/{tokens}', 'LoginController@create_account');
@@ -54,14 +63,17 @@ Route::get('/logout/{id}/{tokens}', 'AuthController@logout');
 Route::post('/get-verification/{tokens}', 'AuthController@validateLogin');
 // On Demands
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['islogin']], function () {
 
-    Route::get('dash', function () {
-        return view('dashboard.content.index');
-    });
+
     Route::get('/demands', 'DemandsController@index');
 
 
+});
+Route::group(['middleware'=>['isadmin']],function(){
+    Route::get('dash', function () {
+        return view('dashboard.content.index');
+    });
     // VIEW SECTION
     Route::get('/user-management', 'ContentController@user');
     Route::get('/client', 'ContentController@client');
@@ -77,6 +89,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/delete-client/{id}', 'ContentController@deleteclient');
     Route::post('/update-clients/{id}', 'ContentController@updateclients');
     Route::post('/add-places', 'ContentController@addplaces');
+    Route::post('/update-places/{id}', 'ContentController@updateplaces');
     Route::get('/delete-places/{id}', 'ContentController@deleteplaces');
 
     Route::post('/add-ads-video', 'ContentController@adsvideoadd');

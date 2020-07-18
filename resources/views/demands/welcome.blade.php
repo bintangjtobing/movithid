@@ -15,6 +15,10 @@
     <link href="css/plugins.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://vjs.zencdn.net/7.8.3/video-js.css">
+    <script src="https://vjs.zencdn.net/7.8.3/video.js"></script>
+ 
 </head>
 <script>
     function startTime() {
@@ -71,16 +75,15 @@
                                         <li><a><span id="time"></span><span class="menu-sub-title">{{$day}}</span></a>
                                         </li>
                                     </ul>
-
                                     <ul>
-                                        <li class="dropdown"> <a href="#">{{auth()->user()->name}}<span
+                                        <li class="dropdown"> <a href="#">{{session()->get('nama')}}<span
                                                     class="menu-sub-title"><span style="color:#17ba91;"><i
                                                             class="fas fa-circle"></i></span>
                                                     Online</span></a>
                                             <ul class="dropdown-menu">
                                                 <?php $tokens =  bin2hex(openssl_random_pseudo_bytes(64));?>
                                                 <li><a href="#"><i class="icon-settings"></i> User Settings</a>
-                                                <li><a href="/logout/{{auth()->user()->id}}/{{$tokens}}"><i
+                                                <li><a href="/logout/{{session()->get('id')}}/{{$tokens}}"><i
                                                             class="icon-log-out"></i> Logout</a>
                                             </ul>
                                 </nav>

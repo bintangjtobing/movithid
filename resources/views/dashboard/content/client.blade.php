@@ -374,6 +374,37 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <div class="form-row">
+                                                        <div class="col-md-6">
+                                                            <h3>Tambah Video</h3>
+
+
+                                                            <?php
+
+
+                                                                $selectedIds = DB::table('places_video')
+                                                                    ->select('id_ads')
+                                                                    ->where('id_place', $places->id)
+                                                                    ->get();
+
+                                                                $tempSelectedIds = [];
+                                                                foreach($selectedIds as $selectedId) $tempSelectedIds[] = $selectedId->id_ads;
+
+
+
+                                                            ?>
+                                                            <input type="hidden" name="selectedIds" value="<?php echo implode(',', $tempSelectedIds) ?>">
+                                                            <select class="form-control js-id_ads" name="id_ads[]" multiple>
+                                                                <option value="">Pilih</option>
+
+
+                                                                @foreach ($ads as $ad)
+                                                                <option value="{{$ad->id}}" <?php if(in_array($ad->id, $tempSelectedIds)) echo 'selected'; ?>>{{$ad->judul_ads}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" form="formupdateplaces{{$places->id}}"
@@ -487,6 +518,7 @@
             </div>
             <form action="/add-places" method="post">
                 @csrf
+                <input type="hidden" name="truth_action" value="save">
                 <div class="modal-body">
                     <h4>Informasi Penanggung Jawab</h4>
                     <div class="form-group">
@@ -550,7 +582,8 @@
                     <div class="form-row">
                         <div class="col-md-6">
                             <h3>Tambah Video</h3>
-                            <select class="form-control" name="" id="">
+                            <select class="form-control js-id_ads" name="id_ads[]" multiple>
+                                <option value="">Pilih</option>
                                 @foreach ($ads as $ads)
                                 <option value="{{$ads->id}}">{{$ads->judul_ads}}</option>
                                 @endforeach

@@ -43,16 +43,16 @@ var Dashboard1 = function() {
                 enabled: false
             },
             labels: [
-                '01/01/2019', 
-                '02/01/2019', 
-                '03/01/2019', 
-                '04/01/2019', 
-                '05/01/2019', 
-                '06/01/2019', 
-                '07/01/2019', 
-                '08/01/2019', 
-                '09/01/2019', 
-                '10/01/2019', 
+                '01/01/2019',
+                '02/01/2019',
+                '03/01/2019',
+                '04/01/2019',
+                '05/01/2019',
+                '06/01/2019',
+                '07/01/2019',
+                '08/01/2019',
+                '09/01/2019',
+                '10/01/2019',
                 '11/01/2019'
             ],
             // markers: {
@@ -123,12 +123,12 @@ var Dashboard1 = function() {
                     color: '#fff'
                 },
                 categories: [
-                    'Coffee Grinder', 
-                    '4PC Cup Set', 
-                    'Salad Spinner', 
-                    'Mandoline', 
-                    'Utensil Set', 
-                    'Food Slicer', 
+                    'Coffee Grinder',
+                    '4PC Cup Set',
+                    'Salad Spinner',
+                    'Mandoline',
+                    'Utensil Set',
+                    'Food Slicer',
                     'Veggie Chopper'
                 ],
                 tickPlacement: 'on'
@@ -299,7 +299,7 @@ var Dashboard1 = function() {
         var chart2 = new ApexCharts(document.querySelector("#sparkline-chart2"), options);
         chart2.render();
     }
-    
+
     return {
         init: function() {
             yearCompareChart();
@@ -313,4 +313,13 @@ var Dashboard1 = function() {
 
 $(function() {
     Dashboard1.init();
+
+    async function Request(options = {}) {
+        return await $.ajax(options);
+    }
+
+
+
+
+
 });

@@ -15,10 +15,12 @@ class LoginController extends Controller
     {
         return view('homepage.signin');
     }
+
     public function signup()
     {
         return view('homepage.register');
     }
+
     public function create_account(Request $request)
     {
         $this->validate($request, [
@@ -26,6 +28,7 @@ class LoginController extends Controller
             'email' => 'required|unique:users|email',
             'phone' => 'required|unique:users|numeric|min:11',
         ]);
+
         $name = $request->name;
         $data_member = new User;
         $data_member->name = $request->name;
@@ -39,5 +42,9 @@ class LoginController extends Controller
         $data_member->save();
         // dd($data_member);
         return view('homepage.berhasil', ['name' => $name]);
+    }
+
+    public function administrator(){
+        return view('homepage.administrator');
     }
 }

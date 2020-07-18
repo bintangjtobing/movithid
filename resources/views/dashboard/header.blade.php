@@ -103,7 +103,7 @@
                         <li class="dropdown-header">
                             <div class="row">
                                 <div class="col-6 text-left">
-                                    <i class="ti-user"></i> {{auth()->user()->name}}
+                                    <i class="ti-user"></i> {{session()->get('name')}}
                                 </div>
                                 <div class="col-6 text-right">
                                     <a href="#"><span style="color:#17ba91;"><i class="fas fa-circle"></i></span>
@@ -116,7 +116,7 @@
                         </li>
                         <li>
                             <?php $tokens =  bin2hex(openssl_random_pseudo_bytes(64));?>
-                            <a href="/logout/{{auth()->user()->id}}/{{$tokens}}"><span><i class="ti-power-off"></i>
+                            <a href="/logout/{{session()->get('id')}}/{{$tokens}}"><span><i class="ti-power-off"></i>
                                     Logout</span></a>
                         </li>
                     </ul>

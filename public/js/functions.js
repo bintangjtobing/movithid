@@ -2815,3 +2815,45 @@ var INSPIRO = {},
     INSPIRO.header.stickyHeader();
   })
 })(jQuery)
+
+window.HELP_IMPROVE_VIDEOJS = false;
+
+
+
+$(function(){
+
+    // let player = videojs('vid', {
+    //     controls: true,
+    //     autoplay: true,
+    //     preload: 'auto'
+    // });
+    loadPlayer($('#vid'), 0);
+    function loadPlayer(videoEl, index = 0) {;
+        let src = videoEl.data('src').split(',');
+
+        if(src.length > 0 && index < src.length) {
+
+            videoEl.html(`
+                <video controls autoplay>
+                    <source src='${src[index]}' type='video/mp4'></source>
+                </video>`
+            );
+            let videoChild = videoEl.find('video');
+
+            console.log('triggering');
+            videoChild.on('ended', function(){
+                loadPlayer(videoEl, ++index);
+            })
+
+        } else {
+            loadPlayer(videoEl, 0);
+        }
+
+
+
+    }
+})
+
+
+
+
