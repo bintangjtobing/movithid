@@ -11,6 +11,7 @@ use App\placesDB;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 
 class ContentController extends Controller
@@ -39,8 +40,8 @@ class ContentController extends Controller
         $client->username = $request->username;
         $client->password = Hash::make($generate_password);
         $client->unpassword = $generate_password;
-        $client->updated_by = auth()->user()->name;
-        $client->created_by = auth()->user()->name;
+        $client->updated_by = session()->get('name');
+        $client->created_by = session()->get('name');
         $client->save();
         return back()->with('selesai', 'Tambah data client berhasil ditambah.');
     }
@@ -76,10 +77,6 @@ class ContentController extends Controller
 
     public function addplaces(Request $request)
     {
-
-
-        //dd($request->input('id_ads'));
-
         $generate_password = str_random(6);
         $places = new placesDB;
         $places->nama = $request->name;
@@ -89,13 +86,14 @@ class ContentController extends Controller
         $places->nohp = $request->nohp;
         $places->spesifikasitv = $request->spesifikasi;
         $places->smarttv = $request->smarttv;
-        $places->updated_by = auth()->user()->name;
-        $places->created_by = auth()->user()->name;
-        $places->save();
+        $places->updated_by = session()->get('name');
+        $places->created_by = session()->get('name');
+        // $places->save();
+        dd($places);
 
         $lastInsertId = $places->id;
 
-        foreach($request->input('id_ads') as $id_ads) {
+        foreach ($request->input('id_ads') as $id_ads) {
             DB::table('places_video')
                 ->insert([
                     'id_place' => $lastInsertId,
@@ -115,14 +113,14 @@ class ContentController extends Controller
         $places->nohp = $request->nohp;
         $places->spesifikasitv = $request->spesifikasi;
         $places->smarttv = $request->smarttv;
-        $places->updated_by = auth()->user()->name;
+        $places->updated_by = session()->get('name');
         $places->save();
 
         DB::table('places_video')
             ->where('id_place', $id)
             ->delete();
 
-        foreach($request->input('id_ads') as $id_ads) {
+        foreach ($request->input('id_ads') as $id_ads) {
             DB::table('places_video')
                 ->insert([
                     'id_place' => $id,
@@ -264,8 +262,8 @@ class ContentController extends Controller
         $box = new boxofficeDB();
         $box->judul = $request->judul;
         $box->tahun_film = $request->tahun_film;
-        $box->created_by = auth()->user()->name;
-        $box->updated_by = auth()->user()->name;
+        $box->created_by = session()->get('name');
+        $box->updated_by = session()->get('name');
         $box->kategori_utama = $request->kategori_utama;
         $box->sub_kategori = $request->sub_kategori;
         $box->sub_kategori2 = $request->sub_kategori2;

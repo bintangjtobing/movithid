@@ -26,7 +26,7 @@ us.')
                     </div>
                     @endforeach
                     @endif
-                    <form class="form-transparent-grey" action="/create-account/{{$tokens}}" method="POST">
+                    <form class="form-transparent-grey" action="/create-account" method="POST">
                         {{ csrf_field() }}
                         <div class="row">
                             <div class="col-lg-12">

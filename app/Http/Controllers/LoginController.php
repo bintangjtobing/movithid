@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\clientsDB;
+use App\placesDB;
 use Carbon\Traits\Timestamp;
 
 class LoginController extends Controller
@@ -30,21 +31,29 @@ class LoginController extends Controller
         ]);
 
         $name = $request->name;
-        $data_member = new User;
-        $data_member->name = $request->name;
+        $data_member = new placesDB;
+        $data_member->nama = $request->name;
         $data_member->username = $request->username;
         $data_member->email = $request->email;
-        $data_member->phone = $request->phone;
+        $data_member->nohp = $request->phone;
         $data_member->unpassword = $request->password;
         $data_member->password = Hash::make($request->password);
-        $data_member->city = $request->city;
+        $data_member->domisilis_id = $request->city;
         $data_member->status = 'unactived';
+        $data_member->nama_toko = $request->placename;
+        $data_member->places_type = $request->place;
+        $data_member->alamat_toko = '-';
+        $data_member->spesifikasitv = '-';
+        $data_member->smarttv = '-';
+        $data_member->created_by = 'Guest';
+        $data_member->updated_by = 'Guest';
         $data_member->save();
         // dd($data_member);
         return view('homepage.berhasil', ['name' => $name]);
     }
 
-    public function administrator(){
+    public function administrator()
+    {
         return view('homepage.administrator');
     }
 }

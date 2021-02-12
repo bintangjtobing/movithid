@@ -30,8 +30,6 @@ class AuthController extends Controller
             ->where('username', $username)
             ->first();
 
-
-
         //dd($check);
 
         if($check && HASH::check($password, $check->password)) {

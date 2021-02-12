@@ -51,11 +51,11 @@ Route::get('sign-in', 'LoginController@signin')->name('signin');
 Route::get('sign-up', 'LoginController@signup');
 
 // menuju administrator dash
-Route::post('/administrator/{tokens}','AuthController@validateadministrator');
-Route::get('administrator','LoginController@administrator');
+Route::post('/administrator/{tokens}', 'AuthController@validateadministrator');
+Route::get('administrator', 'LoginController@administrator');
 
 // Auth Manual Controller
-Route::post('/create-account/{tokens}', 'LoginController@create_account');
+Route::post('/create-account', 'LoginController@create_account');
 Route::post('/reset-account', 'LoginController@resetAccount');
 Route::get('/verification-user/{enc_id}/{tokens}', 'LoginController@verification');
 Route::get('/reset-account/{enc_id}/{tokens}', 'LoginController@getAcc');
@@ -67,10 +67,8 @@ Route::group(['middleware' => ['islogin']], function () {
 
 
     Route::get('/demands', 'DemandsController@index');
-
-
 });
-Route::group(['middleware'=>['isadmin']],function(){
+Route::group(['middleware' => ['isadmin']], function () {
     Route::get('dash', function () {
         return view('dashboard.content.index');
     });
