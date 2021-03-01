@@ -64,8 +64,6 @@ Route::post('/get-verification/{tokens}', 'AuthController@validateLogin');
 // On Demands
 
 Route::group(['middleware' => ['islogin']], function () {
-
-
     Route::get('/demands', 'DemandsController@index');
 });
 Route::group(['middleware' => ['isadmin']], function () {

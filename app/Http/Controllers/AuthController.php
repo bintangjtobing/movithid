@@ -13,14 +13,6 @@ class AuthController extends Controller
     public function validateLogin(Request $request)
     {
         $tokens = str_random(50);
-        // if (Auth::attempt([
-        //     'username' => $request->username,
-        //     'password' => $request->password,
-        //     'status' => 'active',
-        // ])) {
-        //     return redirect('/dash');
-        // }
-        // return back()->with('gagal', 'Otorisasi keanggotaan gagal atau silahkan cek kembali username atau password anda.');
 
 
         $username = $request->username;
@@ -55,14 +47,6 @@ class AuthController extends Controller
     }
     public function validateadministrator(Request $request){
         $tokens = str_random(50);
-        // if (Auth::attempt([
-        //     'username' => $request->username,
-        //     'password' => $request->password,
-        //     'status' => 'active',
-        // ])) {
-        //     return redirect('/dash');
-        // }
-        // return back()->with('gagal', 'Otorisasi keanggotaan gagal atau silahkan cek kembali username atau password anda.');
 
 
         $username = $request->username;

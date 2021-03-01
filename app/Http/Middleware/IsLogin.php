@@ -16,7 +16,7 @@ class IsLogin
     public function handle($request, Closure $next)
     {
 
-        if(($request->session()->get('isLogin') != 'login')) {
+        if (($request->session()->get('isLogin') != 'login')) {
             return redirect('/sign-in');
         }
 
